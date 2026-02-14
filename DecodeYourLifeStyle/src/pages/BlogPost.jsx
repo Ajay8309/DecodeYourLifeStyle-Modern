@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Clock, Calendar, User, Share2, ArrowRight } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, User, Share2, ArrowRight, Zap } from 'lucide-react';
 import axios from 'axios';
 
 const BlogPost = () => {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ChevronDown, ChevronUp, Star } from 'lucide-react';
+import { Search, ChevronDown, ChevronUp, Star, Sparkles } from 'lucide-react';
 
 const faqs = [
     {

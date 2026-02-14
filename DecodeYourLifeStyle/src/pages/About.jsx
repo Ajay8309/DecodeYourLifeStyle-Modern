@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import mentorImage from '../assets/mentor.png';
-import { Brain, Heart, Zap } from 'lucide-react';
+import { Brain, Heart, Zap, Sparkles } from 'lucide-react';
 
 const About = () => {
     return (
