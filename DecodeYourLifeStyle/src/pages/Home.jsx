@@ -5,25 +5,34 @@ import heroBg from '../assets/hero-bg.png';
 import { Star, ChevronDown, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import UpwardSpiral from '../components/UpwardSpiral';
 
+import tarotCard from '../assets/tarot-card-7c5dj9kqjnwd4cwr.jpg';
+import reikiImg from '../assets/reiki-2.jpg';
+import akashicImg from '../assets/akashic-records.webp';
+import numerologyImg from '../assets/numerology.jpg';
+import pendulumImg from '../assets/Crystal-and-pendulum-healing-evening.jpg';
+import zodiacImg from '../assets/Signs-of-the-Zodiac-astrology.jpg';
+import faceImg from '../assets/lights-brain-frequencies-luminous-thought-lucid-mind-series-arrangement-d-rendering-glowing-wire-mesh-human-face-theme-189380655.jpg';
+import innerChildImg from '../assets/iner-child-facebook-cover-5.jpg';
+
 /* Consciousness levels with Hawkins scale values */
 const consciousnessLevels = [
-    { level: '700+', name: 'Enlightenment', tier: 'peak' },
-    { level: '600', name: 'Peace', tier: 'peak' },
-    { level: '540', name: 'Joy', tier: 'high' },
-    { level: '500', name: 'Love', tier: 'high' },
-    { level: '400', name: 'Reason', tier: 'mid' },
-    { level: '350', name: 'Acceptance', tier: 'mid' },
-    { level: '310', name: 'Willingness', tier: 'mid' },
-    { level: '250', name: 'Neutrality', tier: 'mid' },
-    { level: '200', name: 'Courage', tier: 'threshold' },
-    { level: '175', name: 'Pride', tier: 'low' },
-    { level: '150', name: 'Anger', tier: 'low' },
-    { level: '125', name: 'Desire', tier: 'low' },
-    { level: '100', name: 'Fear', tier: 'low' },
-    { level: '75', name: 'Grief', tier: 'low' },
-    { level: '50', name: 'Apathy', tier: 'low' },
-    { level: '30', name: 'Guilt', tier: 'low' },
-    { level: '20', name: 'Shame', tier: 'low' },
+    { level: '700+', name: 'Enlightenment', tier: 'peak', desc: 'Isness. Pure consciousness. Non-duality. The watcher becomes the watched.' },
+    { level: '600', name: 'Peace', tier: 'peak', desc: 'Bliss. Transcendent stillness. Everything is alive, radiant, and continuously unfolding.' },
+    { level: '540', name: 'Joy', tier: 'high', desc: 'Serenity. Healing occurs just by being in your presence. Effortless flow.' },
+    { level: '500', name: 'Love', tier: 'high', desc: 'Reverence. Forgiveness. You see the essence rather than the details.' },
+    { level: '400', name: 'Reason', tier: 'mid', desc: 'Understanding. Abstraction. Science. You seek meaning and logic in all things.' },
+    { level: '350', name: 'Acceptance', tier: 'mid', desc: 'Forgiveness. "It is what it is." You stop resisting life and start navigating it.' },
+    { level: '310', name: 'Willingness', tier: 'mid', desc: 'Optimism. "I can do this." You become friendly to life and its challenges.' },
+    { level: '250', name: 'Neutrality', tier: 'mid', desc: 'Trust. "I am safe." You are easy-going and don\'t need to control outcomes.' },
+    { level: '200', name: 'Courage', tier: 'threshold', desc: 'Empowerment. The tipping point. You take responsibility and action.' },
+    { level: '175', name: 'Pride', tier: 'low', desc: 'Demanding. "My way." Defensive. Feels good but is brittle.' },
+    { level: '150', name: 'Anger', tier: 'low', desc: 'Hate. "I want revenge." Can be a moving force or a destructive one.' },
+    { level: '125', name: 'Desire', tier: 'low', desc: 'Craving. "I want." Never satisfied. The trap of addiction and accumulation.' },
+    { level: '100', name: 'Fear', tier: 'low', desc: 'Anxiety. "The world is dangerous." Paranoia. You see threats everywhere.' },
+    { level: '75', name: 'Grief', tier: 'low', desc: 'Regret. "I lost it." Sadness. You see the past as a series of losses.' },
+    { level: '50', name: 'Apathy', tier: 'low', desc: 'Hopelessness. "I can\'t." The state of victimhood and helplessness.' },
+    { level: '30', name: 'Guilt', tier: 'low', desc: 'Blame. "It\'s my fault." Self-recrimination and remorse.' },
+    { level: '20', name: 'Shame', tier: 'low', desc: 'Humiliation. "I am bad." You want to disappear. The lowest vibration.' },
 ];
 
 const tierColors = {
@@ -92,6 +101,7 @@ const Home = () => {
     /* Carousel state */
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
+    const [hoveredLevel, setHoveredLevel] = useState(null);
     const slidesPerView = 3; // shows 3 at a time on desktop (1 on mobile via CSS)
 
     useEffect(() => {
@@ -313,8 +323,14 @@ const Home = () => {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true, margin: '-5%' }}
                                     transition={{ duration: 0.4, delay: index * 0.04 }}
-                                    className="flex items-center gap-6 pl-4 group"
+                                    onMouseEnter={() => setHoveredLevel(item.name)}
+                                    onMouseLeave={() => setHoveredLevel(null)}
+                                    className="relative flex items-center gap-6 pl-4 group cursor-help py-1"
                                 >
+                                    {/* Line connecting to timeline */}
+                                    <div className={`absolute left-0 top-1/2 -translate-y-1/2 h-[1px] bg-white/20 transition-all duration-300 ${hoveredLevel === item.name ? 'w-8 bg-[var(--color-secondary)]' : 'w-4'}`} />
+
+                                    {/* Node */}
                                     <div className={`relative z-10 w-4 h-4 rounded-full border-2 transition-all duration-300 group-hover:scale-150 ${item.tier === 'peak' ? 'border-[var(--color-secondary)] bg-[var(--color-secondary)]' :
                                         item.tier === 'high' ? 'border-emerald-400 bg-emerald-400/30' :
                                             item.tier === 'threshold' ? 'border-amber-400 bg-amber-400/30' :
@@ -322,17 +338,35 @@ const Home = () => {
                                                     'border-white/20 bg-white/5'
                                         }`} />
 
-                                    <span className="text-sm font-mono w-12 text-[var(--color-text-muted)]">{item.level}</span>
+                                    {/* Level Value */}
+                                    <span className="text-sm font-mono w-12 text-[var(--color-text-muted)] group-hover:text-white transition-colors">{item.level}</span>
 
-                                    <span className={`text-lg md:text-xl font-serif font-bold transition-colors duration-300 ${tierColors[item.tier]} group-hover:text-[var(--color-secondary)]`}>
-                                        {item.name}
-                                    </span>
-
-                                    {item.name === 'Courage' && (
-                                        <span className="text-xs bg-amber-400/20 text-amber-400 px-3 py-1 rounded-full uppercase tracking-widest">
-                                            Threshold
+                                    {/* Name & Expanded Desc */}
+                                    <div className="flex-1 flex items-center gap-3 overflow-hidden">
+                                        <span className={`text-lg md:text-xl font-serif font-bold transition-colors duration-300 whitespace-nowrap ${tierColors[item.tier]} group-hover:text-[var(--color-secondary)]`}>
+                                            {item.name}
                                         </span>
-                                    )}
+                                        {item.name === 'Courage' && (
+                                            <span className="text-xs bg-amber-400/20 text-amber-400 px-3 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">
+                                                Threshold
+                                            </span>
+                                        )}
+
+                                        {/* Description Reveal - Slide in from left, fade in */}
+                                        <AnimatePresence>
+                                            {hoveredLevel === item.name && (
+                                                <motion.span
+                                                    initial={{ opacity: 0, x: -10 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    exit={{ opacity: 0, x: -10 }}
+                                                    transition={{ duration: 0.2 }}
+                                                    className="text-sm text-[var(--color-text-muted)] italic truncate hidden md:inline-block ml-2 border-l border-white/20 pl-3"
+                                                >
+                                                    {item.desc}
+                                                </motion.span>
+                                            )}
+                                        </AnimatePresence>
+                                    </div>
                                 </motion.div>
                             ))}
                         </div>
@@ -549,69 +583,94 @@ const Home = () => {
             </section>
 
             {/* ═══════════════════════════════════════════
-          5 · INSTAGRAM FEED
-      ═══════════════════════════════════════════ */}
-            <section className="py-16 overflow-hidden">
-                <div className="container mx-auto px-6 mb-10">
+           5 · INSTAGRAM FEED (Curated Gallery)
+       ═══════════════════════════════════════════ */}
+            <section className="py-24 overflow-hidden relative">
+                {/* Background decorative glow */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[300px] bg-[var(--color-secondary)]/5 blur-[120px] rounded-full pointer-events-none" />
+
+                <div className="container mx-auto px-6 mb-12">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         className="text-center"
                     >
-                        <h2 className="text-3xl md:text-4xl font-serif font-bold mb-2">
+                        <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4">
                             Follow the <span className="text-[var(--color-secondary)]">Journey</span>
                         </h2>
-                        <a
-                            href="https://instagram.com/decodeyourlifestyle"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[var(--color-secondary)] text-sm hover:underline"
-                        >
-                            @decodeyourlifestyle
-                        </a>
+                        <div className="flex items-center justify-center gap-2 text-[var(--color-text-muted)]">
+                            <span className="text-sm tracking-widest uppercase">@decodeyourlifestyle</span>
+                            <div className="w-1 h-1 rounded-full bg-[var(--color-secondary)]" />
+                            <a
+                                href="https://instagram.com/decodeyourlifestyle"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[var(--color-secondary)] text-sm font-bold hover:underline"
+                            >
+                                Join Community
+                            </a>
+                        </div>
                     </motion.div>
                 </div>
 
-                {/* Scrolling Instagram Grid */}
+                {/* Scrolling Image Grid */}
                 <div className="relative">
+                    {/* Gradient Masks for smooth fade out at edges */}
+                    <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-r from-[var(--color-primary)] to-transparent" />
+                    <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 z-10 bg-gradient-to-l from-[var(--color-primary)] to-transparent" />
+
                     <motion.div
                         animate={{ x: ['0%', '-50%'] }}
-                        transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-                        className="flex gap-4"
+                        transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
+                        className="flex gap-6 md:gap-8 px-4"
+                        style={{ width: 'max-content' }}
                     >
                         {[
-                            { emoji: '✨', title: 'Consciousness', text: 'Your level of awareness determines your reality. Rise above 200 on the Hawkins scale.', gradient: 'from-amber-800/60 to-orange-950' },
-                            { emoji: '🌙', title: 'Tarot Insights', text: 'The cards don\'t predict — they mirror. What patterns are your cards reflecting right now?', gradient: 'from-indigo-900/80 to-violet-950' },
-                            { emoji: '🔮', title: 'Akashic Records', text: 'Every soul has a blueprint. Your Akashic Records hold the map to karmic contracts & purpose.', gradient: 'from-purple-900/70 to-fuchsia-950' },
-                            { emoji: '☀️', title: 'Astrology', text: 'You are not your Sun sign. Your chart is a cosmic DNA — unique, complex, and deeply revealing.', gradient: 'from-amber-900/70 to-yellow-950' },
-                            { emoji: '💫', title: 'Client Wins', text: '"After one session, a 15-year pattern broke." — Real transformation, real people.', gradient: 'from-emerald-900/70 to-teal-950' },
-                            { emoji: '🧘', title: 'Reiki Energy', text: 'Energy doesn\'t lie. Reiki goes where words can\'t — to the root of what\'s really blocked.', gradient: 'from-sky-900/70 to-cyan-950' },
-                            { emoji: '💎', title: 'Crystal Guidance', text: 'Each crystal carries a frequency. Learn which ones align with your current healing journey.', gradient: 'from-rose-900/70 to-pink-950' },
-                            { emoji: '🌿', title: 'Healing Codes', text: 'Ancient numerical sequences that reprogram cellular memory. Science meets the sacred.', gradient: 'from-emerald-800/70 to-green-950' },
-                            { emoji: '⭐', title: 'Transformations', text: 'From stuck to spiral. From circle to expansion. This is what breaking patterns looks like.', gradient: 'from-amber-700/60 to-orange-950' },
+                            { img: tarotCard, type: 'Tarot Wisdom', caption: 'The cards mirror your soul.' },
+                            { img: reikiImg, type: 'Reiki Healing', caption: 'Universal energy flows.' },
+                            { img: akashicImg, type: 'Akashic Records', caption: 'Access your soul\'s blueprint.' },
+                            { img: numerologyImg, type: 'Numerology', caption: 'Numbers vibrate with meaning.' },
+                            { img: pendulumImg, type: 'Crystal Healing', caption: 'Earth\'s ancient wisdom.' },
+                            { img: zodiacImg, type: 'Astrology', caption: 'Written in the stars.' },
+                            { img: faceImg, type: 'Consciousness', caption: 'Expand your awareness.' },
+                            { img: innerChildImg, type: 'Inner Child', caption: 'Heal the root.' },
                         ].flatMap((post, idx) => [post, post].map((p, dup) => ({ ...p, _key: `${idx}-${dup}` })))
                             .map((post) => (
                                 <div
                                     key={post._key}
-                                    className={`flex-shrink-0 w-52 h-64 md:w-60 md:h-72 rounded-2xl bg-gradient-to-br ${post.gradient} relative overflow-hidden group cursor-pointer border border-white/5 hover:border-[var(--color-secondary)]/30 transition-all duration-500`}
+                                    className="group relative flex-shrink-0 w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden cursor-pointer border border-white/5 hover:border-[var(--color-secondary)]/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(212,175,55,0.15)] hover:-translate-y-2"
                                 >
-                                    {/* Content — always visible */}
-                                    <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                                        <div>
-                                            <span className="text-3xl block mb-3">{post.emoji}</span>
-                                            <h4 className="text-sm font-bold uppercase tracking-[0.15em] text-white mb-2">{post.title}</h4>
+                                    {/* Image */}
+                                    <img
+                                        src={post.img}
+                                        alt={post.type}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[0.3] group-hover:grayscale-0"
+                                    />
+
+                                    {/* Gradient Overlay (Always visible at bottom) */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+
+                                    {/* Default content (Bottom) */}
+                                    <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                                        <div className="text-[10px] uppercase tracking-[0.2em] text-[var(--color-secondary)] mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-y-2 group-hover:translate-y-0">
+                                            {post.type}
                                         </div>
-                                        <p className="text-xs text-white/70 leading-relaxed line-clamp-4">{post.text}</p>
+                                        <div className="h-[1px] w-0 group-hover:w-full bg-[var(--color-secondary)] mb-3 transition-all duration-500" />
+                                        <p className="text-white/80 text-xs font-serif italic opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                            "{post.caption}"
+                                        </p>
                                     </div>
 
-                                    {/* Hover overlay with IG icon */}
-                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-                                        <svg className="w-8 h-8 text-white opacity-0 group-hover:opacity-80 transition-opacity duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                                            <rect x="2" y="2" width="20" height="20" rx="5" />
-                                            <circle cx="12" cy="12" r="5" />
-                                            <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none" />
-                                        </svg>
+                                    {/* Center Icon Overlay */}
+                                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div className="w-12 h-12 rounded-full glass flex items-center justify-center text-white border border-white/20 backdrop-blur-md">
+                                            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                <rect x="2" y="2" width="20" height="20" rx="5" />
+                                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
                             ))}
