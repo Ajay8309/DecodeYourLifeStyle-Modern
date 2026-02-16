@@ -1,74 +1,129 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Mail, Phone, MapPin } from 'lucide-react';
-import logo from '../assets/logo.jpeg';
+import { Instagram, Youtube, Mail, MapPin, Phone } from 'lucide-react';
 
 const Footer = () => {
-    return (
-        <footer className="bg-[#011c16] text-white border-t border-white/5 pt-20 pb-10">
-            <div className="container mx-auto px-6">
-                <div className="grid md:grid-cols-4 gap-12 mb-16">
+    const quickLinks = [
+        { name: 'Home', path: '/' },
+        { name: 'Services', path: '/services' },
+        { name: 'The Mentor', path: '/about' },
+        { name: 'Client Info', path: '/info' },
+        { name: 'Booking', path: '/booking' },
+        { name: 'Policies', path: '/policies' },
+    ];
 
-                    {/* Brand */}
+    const services = [
+        'Tarot Guidance',
+        'Astrology Reading',
+        'Akashic Records',
+        'Numerology',
+        'Reiki Healing',
+        'Integrated Healing',
+    ];
+
+    return (
+        <footer className="border-t border-white/10 mt-20 bg-black/20">
+            <div className="max-w-[1200px] mx-auto px-6 py-16">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+
+                    {/* Brand Column */}
                     <div className="md:col-span-1">
-                        <Link to="/" className="flex items-center gap-3 mb-6">
-                            <img src={logo} alt="Decode Your Life" className="h-12 object-contain" />
+                        <Link to="/" className="text-xl font-serif font-bold tracking-[0.12em] inline-block mb-4">
+                            DECODE <span className="text-[var(--color-secondary)]">YOUR LIFE</span>
                         </Link>
-                        <p className="text-[var(--color-text-muted)] text-sm leading-relaxed mb-6">
-                            Bridging the gap between science and spirituality to help you decode your life's patterns and find your true purpose.
+                        <p className="text-sm text-[var(--color-text-muted)] leading-relaxed mb-6">
+                            Science + Spirituality. Pattern recognition for the modern seeker.
                         </p>
+                        <div className="flex gap-4">
+                            <a
+                                href="https://instagram.com/decodeyourlifestyle"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full glass flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-secondary)] hover:border-[var(--color-secondary)]/40 transition-all duration-300"
+                            >
+                                <Instagram size={18} />
+                            </a>
+                            <a
+                                href="https://youtube.com/@decodeyourlifestyle"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full glass flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-secondary)] hover:border-[var(--color-secondary)]/40 transition-all duration-300"
+                            >
+                                <Youtube size={18} />
+                            </a>
+                            <a
+                                href="mailto:contact@decodeyourlife.in"
+                                className="w-10 h-10 rounded-full glass flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-secondary)] hover:border-[var(--color-secondary)]/40 transition-all duration-300"
+                            >
+                                <Mail size={18} />
+                            </a>
+                        </div>
                     </div>
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="font-serif font-bold text-lg mb-6 text-[var(--color-secondary)]">Explore</h4>
-                        <ul className="space-y-4 text-sm text-[var(--color-text-muted)]">
-                            <li><Link to="/services" className="hover:text-[var(--color-secondary)] transition-colors">Services</Link></li>
-                            <li><Link to="/about" className="hover:text-[var(--color-secondary)] transition-colors">The Mentor</Link></li>
-                            <li><Link to="/blog" className="hover:text-[var(--color-secondary)] transition-colors">Resources</Link></li>
-                            <li><Link to="/booking" className="hover:text-[var(--color-secondary)] transition-colors">Book a Session</Link></li>
+                        <h4 className="text-sm uppercase tracking-[0.2em] text-[var(--color-secondary)] mb-6 font-bold">Quick Links</h4>
+                        <ul className="space-y-3">
+                            {quickLinks.map((link) => (
+                                <li key={link.name}>
+                                    <Link
+                                        to={link.path}
+                                        className="text-sm text-[var(--color-text-muted)] hover:text-white transition-colors"
+                                    >
+                                        {link.name}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    {/* Legal */}
+                    {/* Services */}
                     <div>
-                        <h4 className="font-serif font-bold text-lg mb-6 text-[var(--color-secondary)]">Legal</h4>
-                        <ul className="space-y-4 text-sm text-[var(--color-text-muted)]">
-                            <li><Link to="/policies" className="hover:text-[var(--color-secondary)] transition-colors">Privacy Policy</Link></li>
-                            <li><Link to="/policies" className="hover:text-[var(--color-secondary)] transition-colors">Terms of Service</Link></li>
-                            <li><Link to="/policies" className="hover:text-[var(--color-secondary)] transition-colors">Refund Policy</Link></li>
-                            <li><Link to="/info" className="hover:text-[var(--color-secondary)] transition-colors">Client Info</Link></li>
+                        <h4 className="text-sm uppercase tracking-[0.2em] text-[var(--color-secondary)] mb-6 font-bold">Services</h4>
+                        <ul className="space-y-3">
+                            {services.map((service) => (
+                                <li key={service}>
+                                    <Link
+                                        to="/services"
+                                        className="text-sm text-[var(--color-text-muted)] hover:text-white transition-colors"
+                                    >
+                                        {service}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
                     {/* Contact */}
                     <div>
-                        <h4 className="font-serif font-bold text-lg mb-6 text-[var(--color-secondary)]">Connect</h4>
-                        <ul className="space-y-4 text-sm text-[var(--color-text-muted)]">
-                            <li className="flex items-start gap-3">
-                                <Mail size={18} className="text-[var(--color-secondary)] mt-0.5" />
-                                <a href="mailto:decodeyourlife.12@gmail.com" className="hover:text-white transition-colors">
-                                    decodeyourlife.12@gmail.com
-                                </a>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <Instagram size={18} className="text-[var(--color-secondary)] mt-0.5" />
-                                <a href="https://instagram.com/de_codeyourlife" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                                    @de_codeyourlife
-                                </a>
-                            </li>
-                            <li className="flex items-start gap-3">
-                                <Phone size={18} className="text-[var(--color-secondary)] mt-0.5" />
-                                <a href="https://wa.me/917666987712" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                                    +91 7666987712
-                                </a>
-                            </li>
-                        </ul>
+                        <h4 className="text-sm uppercase tracking-[0.2em] text-[var(--color-secondary)] mb-6 font-bold">Contact</h4>
+                        <div className="space-y-4">
+                            <div className="flex items-start gap-3">
+                                <Mail size={16} className="text-[var(--color-secondary)] mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-[var(--color-text-muted)]">contact@decodeyourlife.in</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <MapPin size={16} className="text-[var(--color-secondary)] mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-[var(--color-text-muted)]">Goa, India</span>
+                            </div>
+                            <div className="flex items-start gap-3">
+                                <Phone size={16} className="text-[var(--color-secondary)] mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-[var(--color-text-muted)]">WhatsApp Available</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div className="border-t border-white/5 pt-8 text-center text-xs text-[var(--color-text-muted)]">
-                    <p>&copy; {new Date().getFullYear()} Decode Your Life. All rights reserved.</p>
+            {/* Bottom Bar */}
+            <div className="border-t border-white/5">
+                <div className="max-w-[1200px] mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-xs text-[var(--color-text-muted)]">
+                        &copy; {new Date().getFullYear()} Decode Your Life. All rights reserved.
+                    </p>
+                    <p className="text-xs text-[var(--color-text-muted)]">
+                        Made with ✨ for seekers, by seekers.
+                    </p>
                 </div>
             </div>
         </footer>

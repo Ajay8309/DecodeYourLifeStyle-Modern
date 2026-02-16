@@ -32,15 +32,15 @@ const Navbar = () => {
     ];
 
     const linkClass = (path) =>
-        `text-sm uppercase tracking-[0.15em] transition-colors whitespace-nowrap ${location.pathname === path
+        `text-xs uppercase tracking-[0.15em] transition-colors whitespace-nowrap ${location.pathname === path
             ? 'text-[var(--color-secondary)]'
-            : 'text-white/90 hover:text-white'
+            : 'text-white/70 hover:text-white'
         }`;
 
     return (
         <>
             <motion.nav
-                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass py-3' : 'bg-gradient-to-b from-black/80 via-black/40 to-transparent py-6'
+                className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass py-3' : 'bg-transparent py-5'
                     }`}
                 initial={{ y: -100 }}
                 animate={{ y: 0 }}
@@ -117,20 +117,25 @@ const Navbar = () => {
                             <X size={28} />
                         </button>
 
-                        <Link to="/services" className="text-sm font-medium text-white/80 hover:text-[var(--color-secondary)] transition-colors uppercase tracking-widest">
-                            Services
-                        </Link>
-                        <Link to="/about" className="text-sm font-medium text-white/80 hover:text-[var(--color-secondary)] transition-colors uppercase tracking-widest">
-                            About
-                        </Link>
-                        <Link to="/blog" className="text-sm font-medium text-white/80 hover:text-[var(--color-secondary)] transition-colors uppercase tracking-widest">
-                            Resources
-                        </Link>
+                        {[...leftLinks, ...rightLinks].map((link) => (
+                            <Link
+                                key={link.name}
+                                to={link.path}
+                                className={`text-2xl font-serif transition-colors ${location.pathname === link.path
+                                    ? 'text-[var(--color-secondary)]'
+                                    : 'text-white hover:text-[var(--color-secondary)]'
+                                    }`}
+                            >
+                                {link.name}
+                            </Link>
+                        ))}
+
                         <Link to="/booking">
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="bg-[var(--color-secondary)] text-[var(--color-primary)] px-6 py-2 rounded text-sm font-bold uppercase tracking-widest hover:bg-[var(--color-secondary)]/90 transition-colors"
+                                style={{ backgroundColor: '#D4AF37', color: '#022C22' }}
+                                className="px-8 py-3 font-bold rounded-lg mt-4"
                             >
                                 Book Now
                             </motion.button>
