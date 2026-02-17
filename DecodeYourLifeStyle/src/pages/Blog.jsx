@@ -50,43 +50,39 @@ const Blog = () => {
     }
 
     return (
-        <div className="min-h-screen bg-[#0f1410] pt-32 pb-20 relative overflow-hidden">
-            {/* Background Decor */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 blur-[120px] rounded-full -z-0" />
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-emerald-900/10 blur-[100px] rounded-full -z-0" />
+        <div className="min-h-screen bg-[var(--color-primary)] pt-32 pb-20 relative overflow-hidden">
+            {/* Background Decor — matching Home page */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-secondary)]/5 blur-[120px] rounded-full -z-0" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[var(--color-secondary)]/5 blur-[100px] rounded-full -z-0" />
 
             <div className="container mx-auto px-6 relative z-10">
-                {/* Header */}
+                {/* Header — matching Home page style */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center mb-16"
                 >
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-950/30 backdrop-blur-sm mb-8"
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                        className="uppercase tracking-[0.3em] text-sm text-[var(--color-secondary)] mb-6"
                     >
-                        <BookOpen size={14} className="text-emerald-400" />
-                        <span className="text-xs tracking-[0.2em] text-emerald-300 uppercase">
-                            Ancient Wisdom · Modern Insight
-                        </span>
-                    </motion.div>
+                        Real Experiences · Real Shifts
+                    </motion.p>
 
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight leading-[1.1]"
-                        style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                        Resources & <br />
-                        <span className="text-emerald-400 italic">Insights</span>
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-[1.1] mb-8">
+                        Client <br />
+                        <span className="text-[var(--color-secondary)]">Stories</span>
                     </h1>
 
-                    <div className="w-24 h-px bg-gradient-to-r from-transparent via-emerald-400 to-transparent mx-auto mb-12" />
+                    <div className="w-24 h-px bg-gradient-to-r from-transparent via-[var(--color-secondary)] to-transparent mx-auto mb-12" />
 
                     {/* Search Bar */}
                     <div className="max-w-md mx-auto relative group">
-                        <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500/20 to-transparent rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
-                        <div className="relative flex items-center bg-white/5 border border-white/10 rounded-full px-6 py-4 focus-within:border-emerald-500/50 focus-within:bg-white/10 transition-all backdrop-blur-md">
-                            <Search size={20} className="text-emerald-400 mr-4" />
+                        <div className="absolute -inset-0.5 bg-gradient-to-r from-[var(--color-secondary)]/20 to-transparent rounded-full blur opacity-0 group-hover:opacity-100 transition duration-500" />
+                        <div className="relative flex items-center glass border border-white/10 rounded-full px-6 py-4 focus-within:border-[var(--color-secondary)]/50 transition-all">
+                            <Search size={20} className="text-[var(--color-secondary)] mr-4" />
                             <input
                                 type="text"
                                 placeholder="Search articles..."
@@ -115,8 +111,8 @@ const Blog = () => {
                             key={cat}
                             onClick={() => setSelectedCategory(cat)}
                             className={`px-6 py-2 rounded-full text-[10px] uppercase tracking-[0.2em] font-bold transition-all border ${cat === selectedCategory
-                                ? 'bg-emerald-600 text-white border-emerald-500 shadow-lg shadow-emerald-900/50'
-                                : 'bg-white/5 text-emerald-100/40 border-white/5 hover:border-emerald-500/30 hover:text-emerald-300'
+                                ? 'bg-[var(--color-secondary)] text-[var(--color-primary)] border-[var(--color-secondary)] shadow-lg shadow-[var(--color-secondary)]/20'
+                                : 'bg-white/5 text-white/40 border-white/5 hover:border-[var(--color-secondary)]/30 hover:text-[var(--color-secondary)]'
                                 }`}
                         >
                             {cat}
@@ -133,7 +129,7 @@ const Blog = () => {
                         className="mb-16"
                     >
                         <Link to={`/blog/${featuredPost._id}`}>
-                            <div className={`glass rounded-2xl overflow-hidden border border-white/5 hover:border-[var(--color-secondary)]/30 transition-all duration-500 shimmer-hover group`}>
+                            <div className="glass rounded-2xl overflow-hidden border border-white/5 hover:border-[var(--color-secondary)]/30 transition-all duration-500 group">
                                 <div className="md:flex">
                                     <div className={`md:w-2/5 bg-gradient-to-br ${featuredPost.gradient} p-12 flex items-center justify-center min-h-[250px] relative overflow-hidden`}>
                                         <img
@@ -175,7 +171,7 @@ const Blog = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="glass rounded-2xl overflow-hidden border border-white/5 hover:border-[var(--color-secondary)]/30 transition-all duration-500 shimmer-hover group h-full flex flex-col"
+                                    className="glass rounded-2xl overflow-hidden border border-white/5 hover:border-[var(--color-secondary)]/30 transition-all duration-500 group h-full flex flex-col"
                                 >
                                     {/* Gradient Header */}
                                     <div className={`bg-gradient-to-br ${article.gradient} h-48 relative overflow-hidden`}>
@@ -220,36 +216,6 @@ const Blog = () => {
                         </button>
                     </div>
                 )}
-
-                {/* Newsletter CTA */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="mt-20 glass rounded-2xl p-10 md:p-16 text-center border border-[var(--color-secondary)]/10 bg-gradient-to-b from-transparent to-[var(--color-secondary)]/5"
-                >
-                    <h3 className="text-3xl font-serif font-bold mb-4">
-                        Get Weekly <span className="text-[var(--color-secondary)]">Insights</span>
-                    </h3>
-                    <p className="text-[var(--color-text-muted)] max-w-lg mx-auto mb-8">
-                        Join 1,000+ seekers receiving consciousness insights, pattern-breaking tools, and exclusive content every Thursday.
-                    </p>
-                    <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                        <input
-                            type="email"
-                            placeholder="your@email.com"
-                            className="flex-1 px-5 py-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder:text-white/30 focus:outline-none focus:border-[var(--color-secondary)]/50 transition-colors"
-                        />
-                        <motion.button
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="bg-[var(--color-secondary)] text-[var(--color-primary)] px-6 py-3 font-bold rounded-lg text-sm uppercase tracking-wider whitespace-nowrap shadow-lg shadow-[var(--color-secondary)]/20"
-                        >
-                            Subscribe
-                        </motion.button>
-                    </div>
-                    <p className="text-xs text-[var(--color-text-muted)] mt-4">No spam. Unsubscribe anytime.</p>
-                </motion.div>
             </div>
         </div>
     );

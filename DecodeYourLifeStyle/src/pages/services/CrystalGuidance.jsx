@@ -208,7 +208,7 @@ const CrystalGuidance = () => {
                                             <Zap size={20} />
                                         </div>
                                         <div>
-                                            <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">Exchange</div>
+                                            <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">Fee</div>
                                             <div className="font-bold">₹1,500</div>
                                         </div>
                                     </div>
@@ -216,7 +216,7 @@ const CrystalGuidance = () => {
 
                                 <Link to="/booking">
                                     <motion.button
-                                        whileHover={{ scale: 1.02 }}
+                                        whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(6,182,212,0.4)' }}
                                         whileTap={{ scale: 0.98 }}
                                         className="w-full py-4 rounded-xl font-bold text-[var(--color-primary)] bg-gradient-to-r from-cyan-400 to-teal-500 hover:from-cyan-300 hover:to-teal-400 shadow-lg shadow-cyan-400/30 transition-all flex items-center justify-center gap-2"
                                     >

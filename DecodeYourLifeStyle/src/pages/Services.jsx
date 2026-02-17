@@ -105,7 +105,7 @@ const Services = () => {
 
                 {/* ── Bento Grid ── */}
                 <motion.div
-                    className="grid md:grid-cols-3 gap-6 mb-32"
+                    className="grid md:grid-cols-3 gap-6 mb-16"
                     variants={containerVariants}
                     initial="hidden"
                     animate="visible"
@@ -120,11 +120,11 @@ const Services = () => {
                                 variants={itemVariants}
                                 className="h-full shimmer-hover relative overflow-hidden rounded-2xl glass p-8 border border-white/5 hover:border-[var(--color-secondary)]/40 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-[var(--color-secondary)]/10"
                             >
-                                <div className="text-[var(--color-secondary)] mb-4 group-hover:scale-110 transition-transform duration-300">{service.icon}</div>
+                                <div className="text-[var(--color-secondary)] mb-4 w-fit group-hover:scale-110 origin-center transition-transform duration-300">{service.icon}</div>
                                 <h3 className="text-2xl font-serif font-bold mb-3">{service.title}</h3>
                                 <p className="text-[var(--color-text-muted)] text-sm leading-relaxed mb-6">{service.description}</p>
                                 <div className="flex gap-3 mt-auto">
-                                    <span className="bg-[var(--color-secondary)] text-[var(--color-primary)] px-5 py-2 text-sm font-bold rounded-lg inline-flex items-center gap-2 group-hover:bg-[#F4D03F] transition-colors">
+                                    <span className="bg-[var(--color-secondary)] text-[var(--color-primary)] px-5 py-2 text-sm font-bold rounded-lg inline-flex items-center gap-2 group-hover:bg-[#A98F47] transition-colors">
                                         More Info <ArrowRight size={16} />
                                     </span>
                                 </div>
@@ -156,11 +156,11 @@ const Services = () => {
                         </p>
                         <Link to="/services/integrated-healing">
                             <motion.button
-                                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(212,175,55,0.4)' }}
+                                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(212,175,55,0.5)' }}
                                 whileTap={{ scale: 0.95 }}
-                                className="bg-[var(--color-secondary)] text-[var(--color-primary)] px-10 py-4 text-lg font-bold tracking-wide rounded-lg"
+                                className="bg-[var(--color-secondary)] text-white px-10 py-4 text-lg font-bold tracking-wide rounded-lg inline-flex items-center gap-2 border-2 border-[var(--color-secondary)] shadow-[0_0_15px_rgba(212,175,55,0.3)]"
                             >
-                                Learn More
+                                Learn More <ArrowRight size={18} />
                             </motion.button>
                         </Link>
                     </div>

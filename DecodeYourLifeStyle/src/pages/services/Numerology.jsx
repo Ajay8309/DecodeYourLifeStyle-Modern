@@ -208,7 +208,7 @@ const Numerology = () => {
                                             <Zap size={20} />
                                         </div>
                                         <div>
-                                            <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">Exchange</div>
+                                            <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">Fee</div>
                                             <div className="font-bold">₹1,500</div>
                                         </div>
                                     </div>
@@ -216,7 +216,7 @@ const Numerology = () => {
 
                                 <Link to="/booking">
                                     <motion.button
-                                        whileHover={{ scale: 1.02 }}
+                                        whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(14,165,233,0.4)' }}
                                         whileTap={{ scale: 0.98 }}
                                         className="w-full py-4 rounded-xl font-bold text-[var(--color-primary)] bg-gradient-to-r from-sky-400 to-blue-500 hover:from-sky-300 hover:to-blue-400 shadow-lg shadow-sky-400/30 transition-all flex items-center justify-center gap-2"
                                     >

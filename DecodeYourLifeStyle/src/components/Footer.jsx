@@ -3,28 +3,10 @@ import { Link } from 'react-router-dom';
 import { Instagram, Youtube, Mail, MapPin, Phone } from 'lucide-react';
 
 const Footer = () => {
-    const quickLinks = [
-        { name: 'Home', path: '/' },
-        { name: 'Services', path: '/services' },
-        { name: 'The Mentor', path: '/about' },
-        { name: 'Client Info', path: '/info' },
-        { name: 'Booking', path: '/booking' },
-        { name: 'Policies', path: '/policies' },
-    ];
-
-    const services = [
-        'Tarot Guidance',
-        'Astrology Reading',
-        'Akashic Records',
-        'Numerology',
-        'Reiki Healing',
-        'Integrated Healing',
-    ];
-
     return (
         <footer className="border-t border-white/10 mt-20 bg-black/20">
             <div className="max-w-[1200px] mx-auto px-6 py-16">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-8">
 
                     {/* Brand Column */}
                     <div className="md:col-span-1">
@@ -34,65 +16,8 @@ const Footer = () => {
                         <p className="text-sm text-[var(--color-text-muted)] leading-relaxed mb-6">
                             Science + Spirituality. <br /> Pattern recognition for the modern seeker.
                         </p>
-                        <div className="flex gap-4">
-                            <a
-                                href="https://instagram.com/decodeyourlifestyle"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full glass flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-secondary)] hover:border-[var(--color-secondary)]/40 transition-all duration-300"
-                            >
-                                <Instagram size={18} />
-                            </a>
-                            <a
-                                href="https://youtube.com/@decodeyourlifestyle"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full glass flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-secondary)] hover:border-[var(--color-secondary)]/40 transition-all duration-300"
-                            >
-                                <Youtube size={18} />
-                            </a>
-                            <a
-                                href="mailto:contact@decodeyourlife.in"
-                                className="w-10 h-10 rounded-full glass flex items-center justify-center text-[var(--color-text-muted)] hover:text-[var(--color-secondary)] hover:border-[var(--color-secondary)]/40 transition-all duration-300"
-                            >
-                                <Mail size={18} />
-                            </a>
-                        </div>
                     </div>
 
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="text-sm uppercase tracking-[0.2em] text-[var(--color-secondary)] mb-6 font-bold">Quick Links</h4>
-                        <ul className="space-y-3">
-                            {quickLinks.map((link) => (
-                                <li key={link.name}>
-                                    <Link
-                                        to={link.path}
-                                        className="text-sm text-[var(--color-text-muted)] hover:text-white transition-colors"
-                                    >
-                                        {link.name}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    {/* Services */}
-                    <div>
-                        <h4 className="text-sm uppercase tracking-[0.2em] text-[var(--color-secondary)] mb-6 font-bold">Services</h4>
-                        <ul className="space-y-3">
-                            {services.map((service) => (
-                                <li key={service}>
-                                    <Link
-                                        to="/services"
-                                        className="text-sm text-[var(--color-text-muted)] hover:text-white transition-colors"
-                                    >
-                                        {service}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
 
                     {/* Contact */}
                     <div>
@@ -110,6 +35,15 @@ const Footer = () => {
                                 <Phone size={16} className="text-[var(--color-secondary)] mt-0.5 flex-shrink-0" />
                                 <span className="text-sm text-[var(--color-text-muted)]">WhatsApp Available</span>
                             </div>
+                            <a
+                                href="https://www.instagram.com/de_codeyourlife/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-start gap-3 group"
+                            >
+                                <Instagram size={16} className="text-[var(--color-secondary)] mt-0.5 flex-shrink-0" />
+                                <span className="text-sm text-[var(--color-text-muted)] group-hover:text-white transition-colors">@de_codeyourlife</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -121,9 +55,15 @@ const Footer = () => {
                     <p className="text-xs text-[var(--color-text-muted)]">
                         &copy; {new Date().getFullYear()} Decode Your Life. All rights reserved.
                     </p>
-                    <p className="text-xs text-[var(--color-text-muted)]">
-                        Made with love for seekers, by seekers.
-                    </p>
+                    <div className="flex items-center gap-4">
+                        <Link to="/policies" className="text-xs text-[var(--color-text-muted)] hover:text-white transition-colors">
+                            Policies
+                        </Link>
+                        <span className="text-white/10">|</span>
+                        <p className="text-xs text-[var(--color-text-muted)]">
+                            Made with love for seekers, by seekers.
+                        </p>
+                    </div>
                 </div>
             </div>
         </footer>

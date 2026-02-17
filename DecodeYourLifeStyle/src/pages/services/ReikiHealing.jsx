@@ -208,7 +208,7 @@ const ReikiHealing = () => {
                                             <Zap size={20} />
                                         </div>
                                         <div>
-                                            <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">Exchange</div>
+                                            <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">Fee</div>
                                             <div className="font-bold">₹2,000</div>
                                         </div>
                                     </div>
@@ -216,7 +216,7 @@ const ReikiHealing = () => {
 
                                 <Link to="/booking">
                                     <motion.button
-                                        whileHover={{ scale: 1.02 }}
+                                        whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(16,185,129,0.4)' }}
                                         whileTap={{ scale: 0.98 }}
                                         className="w-full py-4 rounded-xl font-bold text-[var(--color-primary)] bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-300 hover:to-teal-400 shadow-lg shadow-emerald-400/30 transition-all flex items-center justify-center gap-2"
                                     >

@@ -99,7 +99,7 @@ const AdminDashboard = () => {
                             onClick={() => navigate('/admin/article/new')}
                             className="group relative flex items-center gap-3 px-8 py-4 rounded-2xl font-bold text-sm tracking-wide overflow-hidden"
                         >
-                            <div className="absolute inset-0 bg-gradient-to-r from-[#D4AF37] via-[#F4D03F] to-[#D4AF37] group-hover:brightness-110 transition-all font-bold" />
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#A98F47] via-[#A98F47] to-[#A98F47] group-hover:brightness-110 transition-all font-bold" />
                             <span className="relative text-[#022C22] flex items-center gap-2">
                                 <Plus size={18} /> New Article
                             </span>
@@ -307,7 +307,7 @@ const AdminDashboard = () => {
 
             <style jsx>{`
                 .text-gradient {
-                    background: linear-gradient(to right, #D4AF37, #F4D03F, #D4AF37);
+                    background: linear-gradient(to right, #A98F47, #A98F47, #A98F47);
                     -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                 }

@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, CreditCard, FileText, Lock, ChevronRight } from 'lucide-react';
+import { ShieldCheck, CreditCard, Lock, ChevronRight } from 'lucide-react';
 
 const policySections = [
     {
         icon: <CreditCard size={28} />,
-        title: 'Payment, Cancellation & Conduct Policy',
+        title: 'Payment and Cancellation policy',
         items: [
             { subtitle: 'Financial Responsibility', text: 'Clients affirm they have assessed their own financial capacity and voluntarily agreed to the fees.' },
             { subtitle: 'Non-Refundable Payments', text: 'All payments, including special arrangements or discounted offers, are strictly non-refundable under any circumstances.' },
@@ -20,16 +20,6 @@ const policySections = [
             },
             { subtitle: 'No-Show Policy', text: 'Failure to attend a scheduled session without prior notice is considered a "no-show," and 100% of the session fee will be charged.' },
             { subtitle: 'Dispute Resolution', text: 'Any concerns or disputes must be addressed directly with the company; clients agree not to engage in defamation or disparagement on social media platforms.' },
-        ],
-    },
-    {
-        icon: <FileText size={28} />,
-        title: 'Terms & Conditions',
-        items: [
-            { subtitle: 'Eligibility', text: 'Use of the platform is available only to individuals who can legally enter into binding contracts under applicable Indian laws.' },
-            { subtitle: 'Account Responsibility', text: 'Users are responsible for providing accurate information when registering and maintaining the confidentiality of their account details.' },
-            { subtitle: 'Reviews & Submissions', text: 'By submitting feedback or ideas, users grant "Decode Your Life" an irrevocable, royalty-free, worldwide right to use, modify, and publish that content.' },
-            { subtitle: 'Accuracy of Information', text: 'While the site strives for accuracy in service descriptions and pricing, errors may occur; the site reserves the right to correct these and modify service details without prior notice.' },
         ],
     },
     {
@@ -55,7 +45,7 @@ const Policies = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center mb-24"
                 >
-                    <ShieldCheck size={48} className="mx-auto text-[var(--color-secondary)] mb-6" />
+                    <br />
                     <h1 className="text-5xl md:text-7xl font-serif font-bold mb-4">Our Policies</h1>
                     <p className="text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto italic">
                         "Clarity brings peace of mind. We believe in transparency as the foundation of our work together."

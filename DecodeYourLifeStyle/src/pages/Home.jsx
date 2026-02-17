@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import heroBg from '../assets/hero-bg.png';
-import { Star, ChevronDown, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, ChevronDown, ChevronUp, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import UpwardSpiral from '../components/UpwardSpiral';
 
 import tarotCard from '../assets/tarot-card-7c5dj9kqjnwd4cwr.jpg';
@@ -36,7 +36,7 @@ const consciousnessLevels = [
 ];
 
 const tierColors = {
-    peak: 'text-[#D4AF37]',
+    peak: 'text-[#A98F47]',
     high: 'text-emerald-400',
     mid: 'text-sky-400',
     threshold: 'text-amber-400',
@@ -102,6 +102,7 @@ const Home = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
     const [hoveredLevel, setHoveredLevel] = useState(null);
+    const [openFaq, setOpenFaq] = useState(null);
     const slidesPerView = 3; // shows 3 at a time on desktop (1 on mobile via CSS)
 
     useEffect(() => {
@@ -175,7 +176,7 @@ const Home = () => {
                             <motion.button
                                 whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(212,175,55,0.4)' }}
                                 whileTap={{ scale: 0.95 }}
-                                style={{ backgroundColor: '#D4AF37', color: '#022C22' }}
+                                style={{ backgroundColor: '#A98F47', color: '#022C22' }}
                                 className="px-10 py-4 text-lg font-bold tracking-wide rounded-lg transition-all duration-300"
                             >
                                 Book My Slot
@@ -285,6 +286,173 @@ const Home = () => {
                                 </div>
                                 <h3 className="text-xl font-serif font-bold mb-3">{item.title}</h3>
                                 <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{item.desc}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════════════════════════════════════════
+          1.8 · WHAT TO EXPECT
+      ═══════════════════════════════════════════ */}
+            <section className="py-24 bg-black/20">
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-12"
+                    >
+                        <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+                            What to <span className="text-[var(--color-secondary)]">Expect</span>
+                        </h2>
+                        <p className="text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
+                            Your complete guide to preparing for and getting the most from your session.
+                        </p>
+                    </motion.div>
+
+                    <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                        {[
+                            {
+                                icon: '🧘',
+                                title: 'Before Your Session',
+                                points: [
+                                    'Set an intention — what do you want clarity on?',
+                                    'Be in a quiet, private space (for online sessions)',
+                                    'Keep a notebook handy for insights',
+                                    'Come with an open mind — no specific outcome expected',
+                                    'Avoid alcohol/heavy meals for 4 hours prior',
+                                ],
+                            },
+                            {
+                                icon: '💫',
+                                title: 'During Your Session',
+                                points: [
+                                    'The session begins with a brief centering exercise',
+                                    'Aashna will use the chosen modality to read your energy',
+                                    'You may share as much or as little as you like',
+                                    'Expect honest, direct insights — not predictions',
+                                    'Sessions typically last 45–90 minutes',
+                                ],
+                            },
+                            {
+                                icon: '🌱',
+                                title: 'After Your Session',
+                                points: [
+                                    'Drink plenty of water — energy work can be dehydrating',
+                                    'Journal your insights within 24 hours',
+                                    'You may feel emotional shifts for 2–3 days (this is normal)',
+                                    'Integration takes time — be patient with yourself',
+                                    'Follow any specific guidance given during the session',
+                                ],
+                            },
+                            {
+                                icon: '📋',
+                                title: 'Important Notes',
+                                points: [
+                                    'All sessions are strictly confidential',
+                                    'This is NOT a replacement for medical/psychological care',
+                                    'No diagnoses or medical advice will be given',
+                                    'Results vary — your openness affects outcome',
+                                    'Recordings are not permitted during sessions',
+                                ],
+                            },
+                        ].map((card, i) => (
+                            <motion.div
+                                key={card.title}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                className="glass rounded-2xl p-8"
+                            >
+                                <div className="text-3xl mb-4">{card.icon}</div>
+                                <h3 className="text-xl font-serif font-bold mb-4">{card.title}</h3>
+                                <ul className="space-y-3">
+                                    {card.points.map((point, j) => (
+                                        <li key={j} className="flex items-start gap-3 text-sm text-[var(--color-text-muted)]">
+                                            <span className="text-[var(--color-secondary)] mt-0.5 flex-shrink-0">✦</span>
+                                            {point}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* ═══════════════════════════════════════════
+          1.9 · FAQ
+      ═══════════════════════════════════════════ */}
+            <section className="py-24">
+                <div className="container mx-auto px-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center mb-12"
+                    >
+                        <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+                            Frequently Asked <span className="text-[var(--color-secondary)]">Questions</span>
+                        </h2>
+                    </motion.div>
+
+                    <div className="max-w-3xl mx-auto space-y-4">
+                        {[
+                            {
+                                q: 'Who are these modalities for?',
+                                a: 'These modalities are for anyone stuck in patterns — whether it\'s recurring relationship dynamics, addiction, blocked wealth and career stagnation, or soul seekers looking for deeper meaning and purpose in life.',
+                            },
+                            {
+                                q: 'How many sessions would I need?',
+                                a: 'That depends entirely on your situation and goals. However, even a single session gives immense insight and clarity. Many clients feel a significant shift after just one conversation.',
+                            },
+                            {
+                                q: 'Is this therapy or healing?',
+                                a: 'It\'s a mix of both. It\'s based on pattern recognition and therapeutic layers. We work at the intersection of psychology and energy, using ancient tools to address modern challenges.',
+                            },
+                            {
+                                q: 'Who does this work for?',
+                                a: 'It works for anyone open to understanding themselves at a deeper level — entrepreneurs, professionals, creatives, parents, seekers. The common thread is a willingness to look inward.',
+                            },
+                            {
+                                q: 'How do I begin?',
+                                a: 'Simply book a session through our booking page. Choose a modality that resonates, select a time slot, and complete the payment. You\'ll receive a confirmation with all the details you need.',
+                            },
+                        ].map((faq, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: index * 0.05 }}
+                                className="glass rounded-2xl overflow-hidden border border-white/5 hover:border-[var(--color-secondary)]/10 transition-all"
+                            >
+                                <button
+                                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                                    className="w-full text-left px-8 py-6 flex justify-between items-center hover:bg-white/5 transition-colors gap-4"
+                                >
+                                    <span className="text-white/90 font-medium">{faq.q}</span>
+                                    {openFaq === index
+                                        ? <ChevronUp size={18} className="flex-shrink-0 text-[var(--color-secondary)]" />
+                                        : <ChevronDown size={18} className="flex-shrink-0 text-[var(--color-secondary)]/40" />
+                                    }
+                                </button>
+                                <AnimatePresence>
+                                    {openFaq === index && (
+                                        <motion.div
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                        >
+                                            <div className="px-8 pb-6 text-[var(--color-text-muted)] border-t border-white/5 pt-5 text-sm leading-relaxed">
+                                                {faq.a}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </motion.div>
                         ))}
                     </div>
@@ -603,7 +771,7 @@ const Home = () => {
                             <span className="text-sm tracking-widest uppercase">@decodeyourlifestyle</span>
                             <div className="w-1 h-1 rounded-full bg-[var(--color-secondary)]" />
                             <a
-                                href="https://instagram.com/decodeyourlifestyle"
+                                href="https://www.instagram.com/de_codeyourlife/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-[var(--color-secondary)] text-sm font-bold hover:underline"
@@ -675,32 +843,6 @@ const Home = () => {
                                 </div>
                             ))}
                     </motion.div>
-                </div>
-            </section>
-
-            {/* ═══════════════════════════════════════════
-          6 · CTA BANNER
-      ═══════════════════════════════════════════ */}
-            <section className="py-20">
-                <div className="container mx-auto px-6 text-center">
-                    <div className="glass rounded-3xl p-12 md:p-20 border border-[var(--color-secondary)]/10">
-                        <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">
-                            Ready to Decode <span className="text-[var(--color-secondary)]">Your</span> Life?
-                        </h2>
-                        <p className="text-lg text-[var(--color-text-muted)] max-w-xl mx-auto mb-10">
-                            Spirituality is not about escaping life, but understanding it deeply.
-                        </p>
-                        <Link to="/booking">
-                            <motion.button
-                                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(212,175,55,0.4)' }}
-                                whileTap={{ scale: 0.95 }}
-                                style={{ backgroundColor: '#D4AF37', color: '#022C22' }}
-                                className="px-10 py-4 text-lg font-bold tracking-wide rounded-lg inline-flex items-center gap-3"
-                            >
-                                Book My Slot <ArrowRight size={20} />
-                            </motion.button>
-                        </Link>
-                    </div>
                 </div>
             </section>
         </div>

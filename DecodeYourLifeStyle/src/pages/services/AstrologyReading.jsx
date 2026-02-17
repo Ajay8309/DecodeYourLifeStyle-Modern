@@ -208,7 +208,7 @@ const AstrologyReading = () => {
                                             <Zap size={20} />
                                         </div>
                                         <div>
-                                            <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">Exchange</div>
+                                            <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">Fee</div>
                                             <div className="font-bold">₹2,000</div>
                                         </div>
                                     </div>
@@ -216,7 +216,7 @@ const AstrologyReading = () => {
 
                                 <Link to="/booking">
                                     <motion.button
-                                        whileHover={{ scale: 1.02 }}
+                                        whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(245,158,11,0.4)' }}
                                         whileTap={{ scale: 0.98 }}
                                         className="w-full py-4 rounded-xl font-bold text-white bg-gradient-to-r from-amber-700 to-orange-700 hover:from-amber-600 hover:to-orange-600 shadow-lg shadow-amber-900/40 transition-all flex items-center justify-center gap-2"
                                     >

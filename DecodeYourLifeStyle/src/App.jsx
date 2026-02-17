@@ -16,7 +16,6 @@ import ReikiHealing from './pages/services/ReikiHealing';
 import CrystalGuidance from './pages/services/CrystalGuidance';
 import HealingCodes from './pages/services/HealingCodes';
 import IntegratedHealing from './pages/services/IntegratedHealing';
-import Info from './pages/Info';
 import Booking from './pages/Booking';
 import Policies from './pages/Policies';
 import Blog from './pages/Blog';
@@ -44,7 +43,6 @@ const AnimatedRoutes = () => {
         <Route path="/services/healing-codes" element={<PageTransition><HealingCodes /></PageTransition>} />
         <Route path="/services/integrated-healing" element={<PageTransition><IntegratedHealing /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
-        <Route path="/info" element={<PageTransition><Info /></PageTransition>} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/policies" element={<PageTransition><Policies /></PageTransition>} />
         <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
