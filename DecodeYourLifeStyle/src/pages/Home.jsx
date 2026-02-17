@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import heroBg from '../assets/hero-bg.png';
+import heroBg from '../assets/hero-bg-new.png';
 import { Star, ChevronDown, ChevronUp, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import UpwardSpiral from '../components/UpwardSpiral';
 
@@ -152,17 +152,25 @@ const Home = () => {
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, delay: 0.6 }}
-                        className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold leading-[1.1] mb-8"
+                        className="text-5xl md:text-6xl lg:text-7xl font-serif font-bold leading-[1.1] mb-4"
                     >
-                        Decode Your Life <br />
-                        <span className="text-[var(--color-secondary)]">SCIENCE + SPIRITUALITY</span>
+                        Decode Your Life
                     </motion.h1>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.8 }}
+                        className="text-2xl md:text-3xl lg:text-4xl font-serif tracking-[0.12em] uppercase text-[var(--color-secondary)] mb-8"
+                    >
+                        Science + Spirituality
+                    </motion.p>
 
                     <motion.p
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 1, delay: 1 }}
-                        className="text-lg md:text-xl text-[var(--color-text-muted)] mb-12 max-w-2xl mx-auto tracking-wide"
+                        className="text-lg md:text-xl text-[var(--color-text-muted)] mb-12 max-w-2xl mx-auto tracking-wide italic"
                     >
                         Your Life isn&apos;t Random. It&apos;s Patterned. Decodable. Transformable.
                     </motion.p>
