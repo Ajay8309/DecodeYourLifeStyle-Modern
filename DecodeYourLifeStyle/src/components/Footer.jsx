@@ -32,7 +32,7 @@ const Footer = () => {
                             DECODE <span className="text-[var(--color-secondary)]">YOUR LIFE</span>
                         </Link>
                         <p className="text-sm text-[var(--color-text-muted)] leading-relaxed mb-6">
-                            Science + Spirituality. Pattern recognition for the modern seeker.
+                            Science + Spirituality. <br /> Pattern recognition for the modern seeker.
                         </p>
                         <div className="flex gap-4">
                             <a
@@ -122,7 +122,7 @@ const Footer = () => {
                         &copy; {new Date().getFullYear()} Decode Your Life. All rights reserved.
                     </p>
                     <p className="text-xs text-[var(--color-text-muted)]">
-                        Made with ✨ for seekers, by seekers.
+                        Made with love for seekers, by seekers.
                     </p>
                 </div>
             </div>

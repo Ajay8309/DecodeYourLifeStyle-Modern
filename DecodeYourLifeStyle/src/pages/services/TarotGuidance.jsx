@@ -115,48 +115,7 @@ const TarotGuidance = () => {
                         transition={{ delay: 0.4 }}
                         className="lg:col-span-2 space-y-12"
                     >
-                        {/* Overview Card */}
-                        <div className="glass rounded-[2rem] p-8 md:p-10 border border-white/5 relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[80px] rounded-full group-hover:bg-indigo-500/20 transition-all duration-700" />
-
-                            <h2 className="text-3xl font-serif font-bold mb-6 relative z-10">The Mirror of the Soul</h2>
-                            <div className="space-y-6 text-[var(--color-text-muted)] leading-relaxed relative z-10 text-lg">
-                                <p>
-                                    Tarot is often misunderstood as simple "fortune telling." In our sessions, we use it as a powerful psychological and spiritual mirror. The cards act as a bridge between your conscious mind and the deeper currents of your subconscious.
-                                </p>
-                                <p>
-                                    Whether you're standing at a career crossroads, navigating complex relationship dynamics, or simply feeling "stuck," this session reveals the hidden influences at play. We don't just look at "what will happen"—we look at <span className="text-indigo-300 font-bold">why</span> it's happening and how you can shift the outcome.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* What We Explore */}
-                        <div>
-                            <h3 className="text-2xl font-serif font-bold mb-8 flex items-center gap-3">
-                                <Sparkles className="text-indigo-400" /> What We Uncover
-                            </h3>
-                            <div className="grid md:grid-cols-2 gap-4">
-                                {[
-                                    { text: 'Relationship Dynamics & Harmony', icon: '❤️' },
-                                    { text: 'Career Crossroads & Decisions', icon: '⚡' },
-                                    { text: 'Root Causes of Emotional Blocks', icon: '🔐' },
-                                    { text: 'Shadow Work & Hidden Influences', icon: '🌑' },
-                                    { text: 'Spiritual Growth Path', icon: '✨' },
-                                    { text: 'Aligning with Life Purpose', icon: '🧭' }
-                                ].map((item, i) => (
-                                    <motion.div
-                                        key={i}
-                                        whileHover={{ x: 5, backgroundColor: 'rgba(255,255,255,0.05)' }}
-                                        className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-white/[0.02] transition-colors"
-                                    >
-                                        <span className="text-2xl">{item.icon}</span>
-                                        <span className="text-indigo-100 font-medium">{item.text}</span>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* The Process */}
+                        {/* Session Flow */}
                         <div className="glass rounded-[2rem] p-8 border border-white/5">
                             <h3 className="text-2xl font-serif font-bold mb-8">Session Flow</h3>
                             <div className="space-y-8">
@@ -184,6 +143,41 @@ const TarotGuidance = () => {
                             </div>
                         </div>
 
+                        {/* What We Uncover */}
+                        <div>
+                            <h3 className="text-xl font-serif font-bold mb-4 flex items-center gap-3">
+                                <Sparkles className="text-indigo-400" size={18} /> What We Uncover
+                            </h3>
+                            <div className="grid md:grid-cols-2 gap-2">
+                                {[
+                                    { text: 'Relationship Dynamics & Harmony', icon: '❤️' },
+                                    { text: 'Career Crossroads & Decisions', icon: '⚡' },
+                                    { text: 'Root Causes of Emotional Blocks', icon: '🔐' },
+                                    { text: 'Shadow Work & Hidden Influences', icon: '🌑' },
+                                    { text: 'Spiritual Growth Path', icon: '✨' },
+                                    { text: 'Aligning with Life Purpose', icon: '🧭' }
+                                ].map((item, i) => (
+                                    <div
+                                        key={i}
+                                        className="flex items-center gap-3 px-3 py-2 rounded-lg border border-white/5 bg-white/[0.02]"
+                                    >
+                                        <span className="text-lg">{item.icon}</span>
+                                        <span className="text-indigo-100 font-medium text-sm">{item.text}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Overview Card */}
+                        <div className="glass rounded-[2rem] p-6 md:p-8 border border-white/5 relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500/10 blur-[80px] rounded-full group-hover:bg-indigo-500/20 transition-all duration-700" />
+
+                            <h2 className="text-2xl font-serif font-bold mb-4 relative z-10">The Mirror of the Soul</h2>
+                            <p className="text-[var(--color-text-muted)] leading-relaxed relative z-10">
+                                More than fortune telling — tarot reading is a powerful diagnostic tool for your subconscious mind. Uncover hidden patterns in relationships, career, and personal growth to shift outcomes with clarity and intention.
+                            </p>
+                        </div>
+
                     </motion.div>
 
                     {/* Booking Sidebar */}
@@ -197,8 +191,7 @@ const TarotGuidance = () => {
                             <div className="glass p-8 rounded-[2rem] border border-indigo-500/30 shadow-[0_0_30px_rgba(99,102,241,0.1)] relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent pointer-events-none" />
 
-                                <h3 className="text-2xl font-bold mb-2">Book Your Session</h3>
-                                <p className="text-indigo-200 text-sm mb-8">Secure your slot for clarity.</p>
+                                <h3 className="text-2xl font-bold mb-8">Book Your Session</h3>
 
                                 <div className="space-y-6 mb-8">
                                     <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5">

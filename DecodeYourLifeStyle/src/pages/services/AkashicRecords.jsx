@@ -146,9 +146,9 @@ const AkashicRecords = () => {
                         {/* What We Uncover */}
                         <div>
                             <h3 className="text-xl font-serif font-bold mb-4 flex items-center gap-3">
-                                <Sparkles className="text-purple-400" /> What We Uncover
+                                <Sparkles className="text-purple-400" size={18} /> What We Uncover
                             </h3>
-                            <div className="grid md:grid-cols-2 gap-3">
+                            <div className="grid md:grid-cols-2 gap-2">
                                 {[
                                     { text: 'Soul Purpose & Mission', icon: '🌟' },
                                     { text: 'Past Life Connections & Karma', icon: '🔗' },
@@ -157,28 +157,25 @@ const AkashicRecords = () => {
                                     { text: 'Connecting with Spirit Guides', icon: '🕊️' },
                                     { text: 'Ancestral Healing', icon: '🌳' }
                                 ].map((item, i) => (
-                                    <motion.div
+                                    <div
                                         key={i}
-                                        whileHover={{ x: 5, backgroundColor: 'rgba(255,255,255,0.05)' }}
-                                        className="flex items-center gap-4 px-3 py-2 rounded-xl border border-white/5 bg-white/[0.02] transition-colors"
+                                        className="flex items-center gap-3 px-3 py-2 rounded-lg border border-white/5 bg-white/[0.02]"
                                     >
-                                        <span className="text-xl">{item.icon}</span>
+                                        <span className="text-lg">{item.icon}</span>
                                         <span className="text-white font-medium text-sm">{item.text}</span>
-                                    </motion.div>
+                                    </div>
                                 ))}
                             </div>
                         </div>
 
                         {/* Overview Card */}
-                        <div className="glass rounded-[2rem] p-8 md:p-10 border border-white/5 relative overflow-hidden group">
+                        <div className="glass rounded-[2rem] p-6 md:p-8 border border-white/5 relative overflow-hidden group">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-secondary)]/10 blur-[80px] rounded-full group-hover:bg-[var(--color-secondary)]/20 transition-all duration-700" />
 
-                            <h2 className="text-3xl font-serif font-bold mb-6 relative z-10">The Book of Life</h2>
-                            <div className="space-y-6 text-[var(--color-text-muted)] leading-relaxed relative z-10 text-lg">
-                                <p>
-                                    Access your soul's eternal library to clear past karma and patterns. Heal deep-seated blocks and realign with your highest purpose across all lifetimes.
-                                </p>
-                            </div>
+                            <h2 className="text-2xl font-serif font-bold mb-4 relative z-10">The Book of Life</h2>
+                            <p className="text-[var(--color-text-muted)] leading-relaxed relative z-10">
+                                Access your soul's eternal Akashic library to clear past-life karma, heal deep-seated emotional blocks, and realign with your highest purpose.
+                            </p>
                         </div>
 
                     </motion.div>

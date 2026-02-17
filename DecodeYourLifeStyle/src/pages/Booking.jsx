@@ -15,8 +15,8 @@ const pricingData = [
     { service: 'General Consultation', price: '₹300', duration: '15 mins' },
     { service: 'General Counseling', price: '₹1,000/hr (Block) / ₹2,000 (Single)', duration: '1 hour' },
     { service: 'Crystal Healing', price: '₹1,500', duration: '1 hour' },
-    { service: 'Crystal, Switchwords & Frequency', price: 'From ₹14,000', duration: 'Per session' },
-    { service: 'Womb / Entity / Ancestral Healing', price: 'From ₹16,000', duration: 'Per session' },
+    { service: 'Crystal, Switchwords & Frequency', price: '₹1,200', duration: 'Per session' },
+    { service: 'Karmic + Ancestral Healing / Entity Cord Cutting', price: 'From ₹16,000', duration: 'Per session' },
 ];
 
 const steps = ['Pay via QR', 'Upload Screenshot', 'Select Time'];
@@ -183,22 +183,9 @@ const Booking = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="text-center mb-16"
                 >
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8 }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-emerald-500/30 bg-emerald-950/30 backdrop-blur-sm mb-8"
-                    >
-                        <Calendar size={14} className="text-emerald-400" />
-                        <span className="text-xs tracking-[0.2em] text-emerald-300 uppercase">
-                            Reserve Your Space
-                        </span>
-                    </motion.div>
-
-                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-white mb-8 tracking-tight leading-[1.1]"
+                    <h1 className="text-5xl md:text-6xl lg:text-7xl font-light text-[var(--color-secondary)] mb-8 tracking-tight leading-[1.1]"
                         style={{ fontFamily: "'Cormorant Garamond', serif" }}>
-                        Book Your <br />
-                        <span className="text-emerald-400 italic">Session</span>
+                        Book Your Session
                     </h1>
 
                     <div className="w-24 h-px bg-gradient-to-r from-transparent via-emerald-400 to-transparent mx-auto mb-8" />
@@ -241,7 +228,7 @@ const Booking = () => {
                     >
                         <div className="grid grid-cols-[2fr_1fr_1fr] px-8 py-6 border-b border-white/10 text-xs uppercase tracking-widest text-[var(--color-secondary)] bg-black/20 font-bold">
                             <span>Service</span>
-                            <span className="text-center">Duration</span>
+                            <span>Duration</span>
                             <span className="text-right">Fee</span>
                         </div>
 
@@ -266,7 +253,7 @@ const Booking = () => {
                                     <span className={`font-medium transition-colors text-lg ${selectedService?.service === item.service ? 'text-[var(--color-secondary)] font-bold' : 'text-white group-hover:text-[var(--color-secondary)]'}`}>
                                         {item.service}
                                     </span>
-                                    <span className="text-center text-[var(--color-text-muted)] flex items-center justify-center gap-2">
+                                    <span className="text-[var(--color-text-muted)] flex items-center gap-2">
                                         <Clock size={16} className="text-[var(--color-secondary)]/50" /> {item.duration}
                                     </span>
                                     <span className="text-right font-sans font-bold text-xl text-[var(--color-secondary)]">{item.price}</span>

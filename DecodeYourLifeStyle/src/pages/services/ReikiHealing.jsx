@@ -115,48 +115,7 @@ const ReikiHealing = () => {
                         transition={{ delay: 0.4 }}
                         className="lg:col-span-2 space-y-12"
                     >
-                        {/* Overview Card */}
-                        <div className="glass rounded-[2rem] p-8 md:p-10 border border-white/5 relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 blur-[80px] rounded-full group-hover:bg-emerald-500/20 transition-all duration-700" />
-
-                            <h2 className="text-3xl font-serif font-bold mb-6 relative z-10">Vital Life Force</h2>
-                            <div className="space-y-6 text-[var(--color-text-muted)] leading-relaxed relative z-10 text-lg">
-                                <p>
-                                    Reiki (Rei = Universal, Ki = Life Force) is a Japanese technique for stress reduction and relaxation that promotes natural healing.
-                                </p>
-                                <p>
-                                    When your energy is low or blocked by stress, trauma, or illness, you are more likely to feel imbalanced. By channeling high-vibrational energy into your field, we can clear these blockages. This allows your body's innate healing intelligence to kick in, restoring a sense of deep peace and vitality.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* What We Explore */}
-                        <div>
-                            <h3 className="text-2xl font-serif font-bold mb-8 flex items-center gap-3">
-                                <Sparkles className="text-emerald-400" /> Key Benefits
-                            </h3>
-                            <div className="grid md:grid-cols-2 gap-4">
-                                {[
-                                    { text: 'Chakra Balancing & Alignment', icon: '🌈' },
-                                    { text: 'Deep Stress Reduction', icon: '😌' },
-                                    { text: 'Clearing Emotional Blockages', icon: '💧' },
-                                    { text: 'Pain Management Support', icon: '🤕' },
-                                    { text: 'Removing Negative Attachments', icon: '✂️' },
-                                    { text: 'Aura Cleansing & Protection', icon: '🛡️' }
-                                ].map((item, i) => (
-                                    <motion.div
-                                        key={i}
-                                        whileHover={{ x: 5, backgroundColor: 'rgba(255,255,255,0.05)' }}
-                                        className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-white/[0.02] transition-colors"
-                                    >
-                                        <span className="text-2xl">{item.icon}</span>
-                                        <span className="text-emerald-100 font-medium">{item.text}</span>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-
-                        {/* The Process */}
+                        {/* Session Flow */}
                         <div className="glass rounded-[2rem] p-8 border border-white/5">
                             <h3 className="text-2xl font-serif font-bold mb-8">Session Flow</h3>
                             <div className="space-y-8">
@@ -184,6 +143,41 @@ const ReikiHealing = () => {
                             </div>
                         </div>
 
+                        {/* Key Benefits */}
+                        <div>
+                            <h3 className="text-xl font-serif font-bold mb-4 flex items-center gap-3">
+                                <Sparkles className="text-emerald-400" size={18} /> Key Benefits
+                            </h3>
+                            <div className="grid md:grid-cols-2 gap-2">
+                                {[
+                                    { text: 'Chakra Balancing & Alignment', icon: '🌈' },
+                                    { text: 'Deep Stress Reduction', icon: '😌' },
+                                    { text: 'Clearing Emotional Blockages', icon: '💧' },
+                                    { text: 'Pain Management Support', icon: '🤕' },
+                                    { text: 'Removing Negative Attachments', icon: '✂️' },
+                                    { text: 'Aura Cleansing & Protection', icon: '🛡️' }
+                                ].map((item, i) => (
+                                    <div
+                                        key={i}
+                                        className="flex items-center gap-3 px-3 py-2 rounded-lg border border-white/5 bg-white/[0.02]"
+                                    >
+                                        <span className="text-lg">{item.icon}</span>
+                                        <span className="text-emerald-100 font-medium text-sm">{item.text}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Overview Card */}
+                        <div className="glass rounded-[2rem] p-6 md:p-8 border border-white/5 relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 blur-[80px] rounded-full group-hover:bg-emerald-500/20 transition-all duration-700" />
+
+                            <h2 className="text-2xl font-serif font-bold mb-4 relative z-10">Vital Life Force</h2>
+                            <p className="text-[var(--color-text-muted)] leading-relaxed relative z-10">
+                                Reiki channels universal life force energy to clear stress, trauma, and energetic blockages. Restore deep balance to your chakras and activate your body's innate healing intelligence for lasting peace and vitality.
+                            </p>
+                        </div>
+
                     </motion.div>
 
                     {/* Booking Sidebar */}
@@ -197,8 +191,7 @@ const ReikiHealing = () => {
                             <div className="glass p-8 rounded-[2rem] border border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.1)] relative overflow-hidden">
                                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent pointer-events-none" />
 
-                                <h3 className="text-2xl font-bold mb-2">Book Your Session</h3>
-                                <p className="text-emerald-200 text-sm mb-8">Revitalize your energy field.</p>
+                                <h3 className="text-2xl font-bold mb-8">Book Your Session</h3>
 
                                 <div className="space-y-6 mb-8">
                                     <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
