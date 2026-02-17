@@ -115,47 +115,6 @@ const AkashicRecords = () => {
                         transition={{ delay: 0.4 }}
                         className="lg:col-span-2 space-y-12"
                     >
-                        {/* Overview Card */}
-                        <div className="glass rounded-[2rem] p-8 md:p-10 border border-white/5 relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 blur-[80px] rounded-full group-hover:bg-purple-500/20 transition-all duration-700" />
-
-                            <h2 className="text-3xl font-serif font-bold mb-6 relative z-10">The Book of Life</h2>
-                            <div className="space-y-6 text-[var(--color-text-muted)] leading-relaxed relative z-10 text-lg">
-                                <p>
-                                    Imagine a library that contains every thought, word, emotion, and intent that has ever occurred in the past, present, or future. This is the Akashic Field (Akasha).
-                                </p>
-                                <p>
-                                    In this profound session, we access your specific "Soul Record." This allows us to understand the root cause of current life patterns, clear karma from past lives, and realign you with your soul's original blueprint. It is not just information—it is deep, energetic healing.
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* What We Explore */}
-                        <div>
-                            <h3 className="text-2xl font-serif font-bold mb-8 flex items-center gap-3">
-                                <Sparkles className="text-purple-400" /> What We Uncover
-                            </h3>
-                            <div className="grid md:grid-cols-2 gap-4">
-                                {[
-                                    { text: 'Soul Purpose & Mission', icon: '🌟' },
-                                    { text: 'Past Life Connections & Karma', icon: '🔗' },
-                                    { text: 'Origins of Fears & Phobias', icon: '🕷️' },
-                                    { text: 'Clearing Vows, Oaths & Contracts', icon: '📜' },
-                                    { text: 'Connecting with Spirit Guides', icon: '🕊️' },
-                                    { text: 'Ancestral Healing', icon: '🌳' }
-                                ].map((item, i) => (
-                                    <motion.div
-                                        key={i}
-                                        whileHover={{ x: 5, backgroundColor: 'rgba(255,255,255,0.05)' }}
-                                        className="flex items-center gap-4 p-4 rounded-xl border border-white/5 bg-white/[0.02] transition-colors"
-                                    >
-                                        <span className="text-2xl">{item.icon}</span>
-                                        <span className="text-purple-100 font-medium">{item.text}</span>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </div>
-
                         {/* The Process */}
                         <div className="glass rounded-[2rem] p-8 border border-white/5">
                             <h3 className="text-2xl font-serif font-bold mb-8">Session Flow</h3>
@@ -184,6 +143,44 @@ const AkashicRecords = () => {
                             </div>
                         </div>
 
+                        {/* What We Uncover */}
+                        <div>
+                            <h3 className="text-xl font-serif font-bold mb-4 flex items-center gap-3">
+                                <Sparkles className="text-purple-400" /> What We Uncover
+                            </h3>
+                            <div className="grid md:grid-cols-2 gap-3">
+                                {[
+                                    { text: 'Soul Purpose & Mission', icon: '🌟' },
+                                    { text: 'Past Life Connections & Karma', icon: '🔗' },
+                                    { text: 'Origins of Fears & Phobias', icon: '🕷️' },
+                                    { text: 'Clearing Vows, Oaths & Contracts', icon: '📜' },
+                                    { text: 'Connecting with Spirit Guides', icon: '🕊️' },
+                                    { text: 'Ancestral Healing', icon: '🌳' }
+                                ].map((item, i) => (
+                                    <motion.div
+                                        key={i}
+                                        whileHover={{ x: 5, backgroundColor: 'rgba(255,255,255,0.05)' }}
+                                        className="flex items-center gap-4 px-3 py-2 rounded-xl border border-white/5 bg-white/[0.02] transition-colors"
+                                    >
+                                        <span className="text-xl">{item.icon}</span>
+                                        <span className="text-white font-medium text-sm">{item.text}</span>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Overview Card */}
+                        <div className="glass rounded-[2rem] p-8 md:p-10 border border-white/5 relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-secondary)]/10 blur-[80px] rounded-full group-hover:bg-[var(--color-secondary)]/20 transition-all duration-700" />
+
+                            <h2 className="text-3xl font-serif font-bold mb-6 relative z-10">The Book of Life</h2>
+                            <div className="space-y-6 text-[var(--color-text-muted)] leading-relaxed relative z-10 text-lg">
+                                <p>
+                                    Access your soul's eternal library to clear past karma and patterns. Heal deep-seated blocks and realign with your highest purpose across all lifetimes.
+                                </p>
+                            </div>
+                        </div>
+
                     </motion.div>
 
                     {/* Booking Sidebar */}
@@ -194,15 +191,14 @@ const AkashicRecords = () => {
                             transition={{ delay: 0.6 }}
                             className="sticky top-32 space-y-6"
                         >
-                            <div className="glass p-8 rounded-[2rem] border border-purple-500/30 shadow-[0_0_30px_rgba(168,85,247,0.1)] relative overflow-hidden">
-                                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent pointer-events-none" />
+                            <div className="glass p-8 rounded-[2rem] border border-[var(--color-secondary)]/30 shadow-[0_0_30px_rgba(169,143,71,0.1)] relative overflow-hidden">
+                                <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-secondary)]/10 to-transparent pointer-events-none" />
 
-                                <h3 className="text-2xl font-bold mb-2">Book Your Session</h3>
-                                <p className="text-purple-200 text-sm mb-8">Unlock your soul's wisdom.</p>
+                                <h3 className="text-2xl font-bold mb-8">Book Your Session</h3>
 
                                 <div className="space-y-6 mb-8">
                                     <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
-                                        <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
+                                        <div className="w-10 h-10 rounded-full bg-[var(--color-secondary)]/20 flex items-center justify-center text-[var(--color-secondary)]">
                                             <Clock size={20} />
                                         </div>
                                         <div>
@@ -211,11 +207,11 @@ const AkashicRecords = () => {
                                         </div>
                                     </div>
                                     <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
-                                        <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-400">
+                                        <div className="w-10 h-10 rounded-full bg-[var(--color-secondary)]/20 flex items-center justify-center text-[var(--color-secondary)]">
                                             <Zap size={20} />
                                         </div>
                                         <div>
-                                            <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">Exchange</div>
+                                            <div className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider">Fee</div>
                                             <div className="font-bold">₹4,000</div>
                                         </div>
                                     </div>
@@ -223,9 +219,9 @@ const AkashicRecords = () => {
 
                                 <Link to="/booking">
                                     <motion.button
-                                        whileHover={{ scale: 1.02 }}
+                                        whileHover={{ scale: 1.02, boxShadow: '0 0 20px rgba(169,143,71,0.4)' }}
                                         whileTap={{ scale: 0.98 }}
-                                        className="w-full py-4 rounded-xl font-bold text-white bg-gradient-to-r from-purple-600 to-fuchsia-600 hover:from-purple-500 hover:to-fuchsia-500 shadow-lg shadow-purple-600/30 transition-all flex items-center justify-center gap-2"
+                                        className="w-full py-4 rounded-xl font-bold text-white bg-[#A98F47] hover:bg-[#c5a028] shadow-[0_0_20px_rgba(169,143,71,0.2)] transition-all flex items-center justify-center gap-2"
                                     >
                                         Book Now <ArrowRight size={18} />
                                     </motion.button>
